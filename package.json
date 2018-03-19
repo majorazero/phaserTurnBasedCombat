@@ -1,0 +1,19 @@
+{
+  "name": "phaserturnbasedcombat",
+  "version": "1.0.0",
+  "description": "practice making a turn based combat phaser game",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majorazero/phaserTurnBasedCombat.git"
+  },
+  "author": "Daniel Hsu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majorazero/phaserTurnBasedCombat/issues"
+  },
+  "homepage": "https://github.com/majorazero/phaserTurnBasedCombat#readme"
+}
