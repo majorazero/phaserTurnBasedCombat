@@ -4,7 +4,7 @@
   "description": "practice making a turn based combat phaser game",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
