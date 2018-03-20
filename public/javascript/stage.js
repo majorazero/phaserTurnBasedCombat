@@ -16,7 +16,7 @@ stageState.create = function(){
               .to({y:(game.height/2)-50},1000,"Linear",false)
               .to({y:(game.height/2)},1000,"Cubic",true)
               .loop(true);
-  player.status = game.add.text(enemy.diamond.x,enemy.diamond.y-150, enemy.name + "\nhealth:" + enemy.health,
+  enemy.status = game.add.text(enemy.diamond.x,enemy.diamond.y-150, enemy.name + "\nhealth:" + enemy.health,
                 {font:'30px Courier', fill: '#fff'});
   var tween2 = game.add.tween(enemy.diamond)
               .to({y:(game.height/2)+50},1000,"Linear",false)
@@ -25,6 +25,19 @@ stageState.create = function(){
 
 };
 stageState.update = function(){
-
-
-}
+  //creates input keys
+  var cursors = game.input.keyboard.createCursorKeys();
+  stageState.gameUpdate(cursors);
+};
+stageState.gameUpdate = function(button){
+  var spaceInp = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+  if(spaceInp.isDown){
+    enemy.health--;
+    stageState.damageAnimation(enemy.diamond);
+    enemy.status.setText(enemy.name + "\nhealth:" + enemy.health,
+                  {font:'30px Courier', fill: '#fff'});
+  }
+};
+stageState.damageAnimation = function(sprite){
+  sprite.tint = "0xff0000";
+};
