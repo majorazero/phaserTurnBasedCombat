@@ -6,6 +6,7 @@ stageState.create = function(){
             damage:1,
             name:"player"};
   player.star = game.add.sprite(50,game.height/2,"star","star.png");
+  player.flipflop = false;
   enemy = {health:10,
             damage:1,
             name:"notCoolBro"};
@@ -32,10 +33,16 @@ stageState.update = function(){
 stageState.gameUpdate = function(button){
   var spaceInp = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   if(spaceInp.isDown){
-    enemy.health--;
-    stageState.damageAnimation(enemy.diamond);
-    enemy.status.setText(enemy.name + "\nhealth:" + enemy.health,
-                  {font:'30px Courier', fill: '#fff'});
+    if(!player.flipflop){
+      enemy.health--;
+      stageState.damageAnimation(enemy.diamond);
+      enemy.status.setText(enemy.name + "\nhealth:" + enemy.health,
+                    {font:'30px Courier', fill: '#fff'});
+      player.flipflop = true;
+    }
+  }
+  if(spaceInp.isUp){
+    player.flipflop = false;
   }
 };
 stageState.damageAnimation = function(sprite){
